@@ -1,4 +1,4 @@
-package fastcampus.part5.chapter2
+package fastcampus.part5.chapter2.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,11 +13,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import fastcampus.part5.chapter2.ui.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             MyApplicationTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
                     Greeting("Android")
                 }
