@@ -8,12 +8,11 @@ import fastcampus.part5.data.repository.TempRepositoryImpl
 import fastcampus.part5.domain.repository.TempRepository
 import javax.inject.Singleton
 
-
 @Module
 @InstallIn(SingletonComponent::class)
 interface DataModule {
 
     @Binds
     @Singleton
-    fun bindMainRepository(tempRepositoryImpl : TempRepositoryImpl) : TempRepository
+    fun bindTempRepository(tempRepositoryImpl: TempRepositoryImpl) : TempRepository
 }
