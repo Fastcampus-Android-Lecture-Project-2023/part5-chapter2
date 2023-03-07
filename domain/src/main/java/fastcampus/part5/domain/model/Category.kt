@@ -1,6 +1,6 @@
 package fastcampus.part5.domain.model
 
-sealed class Category(
+open class Category(
     val categoryId: String,
     val categoryName: String,
 ) {
