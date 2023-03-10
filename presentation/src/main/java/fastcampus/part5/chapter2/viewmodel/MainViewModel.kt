@@ -13,7 +13,7 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(useCase: MainUseCase) : ViewModel() {
     private val _columnCount = MutableStateFlow(DEFAULT_COLUMN_COUNT)
     val columnCount: StateFlow<Int> = _columnCount
-    val productList = useCase.getProductList()
+    val modelList = useCase.getModelList()
 
     fun openSearchForm() {
         println("openSearchForm")

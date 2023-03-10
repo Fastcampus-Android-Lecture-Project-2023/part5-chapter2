@@ -9,4 +9,5 @@ data class Product(
     val shop: Shop,
     val isNew: Boolean,
     val isFreeShipping: Boolean,
-)
+    override val type: ModelType = ModelType.PRODUCT,
+) : BaseModel()
