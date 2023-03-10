@@ -15,10 +15,7 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -26,9 +23,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import fastcampus.part5.chapter2.ui.main.MainInsideScreen
 import fastcampus.part5.chapter2.ui.theme.MyApplicationTheme
 import fastcampus.part5.chapter2.viewmodel.MainViewModel
-import fastcampus.part5.di.R
 
 
 sealed class MainNavigationItem(val route: String,val icon : ImageVector, val name: String) {
@@ -58,7 +55,7 @@ fun MainScreen() {
             MainBottomNavigationBar(navController)
         }
     ) {
-        MainNavigationScreen(navController = navController)
+        MainNavigationScreen(viewModel = viewModel, navController = navController)
     }
 }
 
@@ -111,10 +108,10 @@ fun MainBottomNavigationBar(navController: NavHostController) {
 }
 
 @Composable
-fun MainNavigationScreen(navController: NavHostController) {
+fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostController) {
     NavHost(navController = navController, startDestination = MainNavigationItem.Main.route) {
         composable(MainNavigationItem.Main.route) {
-            Text(text = "Hello Main")
+            MainInsideScreen(viewModel)
         }
         composable(MainNavigationItem.Category.route) {
             Text(text = "Hello Category")
