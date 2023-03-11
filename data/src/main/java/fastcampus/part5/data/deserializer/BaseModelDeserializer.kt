@@ -5,6 +5,7 @@ import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer
 import com.google.gson.JsonElement
 import fastcampus.part5.domain.model.Banner
+import fastcampus.part5.domain.model.BannerList
 import fastcampus.part5.domain.model.BaseModel
 import fastcampus.part5.domain.model.ModelType
 import fastcampus.part5.domain.model.Product
@@ -27,6 +28,9 @@ class BaseModelDeserializer : JsonDeserializer<BaseModel> {
             }
             ModelType.PRODUCT -> {
                 gson.fromJson(root, Product::class.java)
+            }
+            ModelType.BANNER_LIST -> {
+                gson.fromJson(root, BannerList::class.java)
             }
         }
     }

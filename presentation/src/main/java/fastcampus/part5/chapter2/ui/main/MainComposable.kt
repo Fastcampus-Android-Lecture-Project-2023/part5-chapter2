@@ -18,10 +18,13 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import fastcampus.part5.chapter2.ui.common.ProductCard
+import fastcampus.part5.chapter2.ui.component.BannerCard
+import fastcampus.part5.chapter2.ui.component.BannerListCard
+import fastcampus.part5.chapter2.ui.component.ProductCard
 import fastcampus.part5.chapter2.viewmodel.MainViewModel
 import fastcampus.part5.di.R
 import fastcampus.part5.domain.model.Banner
+import fastcampus.part5.domain.model.BannerList
 import fastcampus.part5.domain.model.ModelType
 import fastcampus.part5.domain.model.Product
 
@@ -41,6 +44,7 @@ fun MainInsideScreen(viewModel: MainViewModel) {
         }) {
             when (val item = modelList[it]) {
                 is Banner -> BannerCard(model = item)
+                is BannerList -> BannerListCard(model = item)
                 is Product -> ProductCard(product = item) {
                 }
             }
@@ -50,26 +54,6 @@ fun MainInsideScreen(viewModel: MainViewModel) {
 private fun getSpanCountByType(type :ModelType, defaultColumnCount: Int) : Int{
     return when(type) {
         ModelType.PRODUCT -> 1
-        ModelType.BANNER -> defaultColumnCount
-    }
-}
-
-@Composable
-fun BannerCard(model: Banner) {
-    Card(
-        shape = RoundedCornerShape(12.dp),
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(10.dp)
-            .shadow(20.dp)
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.product_image),
-            "description",
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .fillMaxWidth()
-                .aspectRatio(2f)
-        )
+        ModelType.BANNER, ModelType.BANNER_LIST -> defaultColumnCount
     }
 }
