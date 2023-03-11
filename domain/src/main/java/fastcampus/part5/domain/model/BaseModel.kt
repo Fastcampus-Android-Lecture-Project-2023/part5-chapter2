@@ -8,4 +8,5 @@ enum class ModelType {
     PRODUCT,
     BANNER,
     BANNER_LIST,
+    CAROUSEL,
 }
