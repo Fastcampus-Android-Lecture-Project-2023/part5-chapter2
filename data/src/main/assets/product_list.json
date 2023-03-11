@@ -1,5 +1,490 @@
 [
   {
+    "bannerId": "1",
+    "type": "BANNER_LIST",
+    "imageList": [
+      "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+      "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+      "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+      "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+    ]
+  },
+  {
+    "type": "PRODUCT",
+    "productId": "1",
+    "productName": "샘플 상의1",
+    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+    "price": {
+      "originPrice": 30000,
+      "finalPrice": 20000,
+      "salesStatus": "ON_DISCOUNT"
+    },
+    "category": {
+      "categoryId": "1",
+      "categoryName": "상의"
+    },
+    "shop": {
+      "shopId": "1001",
+      "shopName": "패캠샵",
+      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+    },
+    "isNew": true,
+    "isFreeShipping": false
+  },
+  {
+    "type": "PRODUCT",
+    "productId": "2",
+    "productName": "샘플 상의2",
+    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+    "price": {
+      "originPrice": 30000,
+      "finalPrice": 20000,
+      "salesStatus": "ON_DISCOUNT"
+    },
+    "category": {
+      "categoryId": "1",
+      "categoryName": "상의"
+    },
+    "shop": {
+      "shopId": "1001",
+      "shopName": "패캠샵",
+      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+    },
+    "isNew": true,
+    "isFreeShipping": false
+  },
+  {
+    "type": "PRODUCT",
+    "productId": "3",
+    "productName": "샘플 상의3",
+    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+    "price": {
+      "originPrice": 30000,
+      "finalPrice": 30000,
+      "salesStatus": "ON_SALE"
+    },
+    "category": {
+      "categoryId": "1",
+      "categoryName": "상의"
+    },
+    "shop": {
+      "shopId": "1006",
+      "shopName": "패캠크림",
+      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+    },
+    "isNew": true,
+    "isFreeShipping": false
+  },
+  {
+    "type": "PRODUCT",
+    "productId": "4",
+    "productName": "샘플 상의4",
+    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+    "price": {
+      "originPrice": 30000,
+      "finalPrice": 30000,
+      "salesStatus": "SOLD_OUT"
+    },
+    "category": {
+      "categoryId": "1",
+      "categoryName": "상의"
+    },
+    "shop": {
+      "shopId": "1006",
+      "shopName": "패캠크림",
+      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+    },
+    "isNew": true,
+    "isFreeShipping": false
+  },
+  {
+    "type": "RANKING",
+    "rankingId": "1",
+    "title": "베스트 아이템",
+    "productList": [
+      {
+        "type": "PRODUCT",
+        "productId": "75",
+        "productName": "샘플 패션잡화5",
+        "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+        "price": {
+          "originPrice": 30000,
+          "finalPrice": 30000,
+          "salesStatus": "ON_SALE"
+        },
+        "category": {
+          "categoryId": "8",
+          "categoryName": "패션잡화"
+        },
+        "shop": {
+          "shopId": "1004",
+          "shopName": "패캠신사 ",
+          "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+        },
+        "isNew": true,
+        "isFreeShipping": false
+      },
+      {
+        "type": "PRODUCT",
+        "productId": "76",
+        "productName": "샘플 패션잡화6",
+        "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+        "price": {
+          "originPrice": 30000,
+          "finalPrice": 20000,
+          "salesStatus": "ON_DISCOUNT"
+        },
+        "category": {
+          "categoryId": "8",
+          "categoryName": "패션잡화"
+        },
+        "shop": {
+          "shopId": "1004",
+          "shopName": "패캠신사",
+          "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+        },
+        "isNew": true,
+        "isFreeShipping": false
+      },
+      {
+        "type": "PRODUCT",
+        "productId": "77",
+        "productName": "샘플 패션잡화7",
+        "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+        "price": {
+          "originPrice": 30000,
+          "finalPrice": 30000,
+          "salesStatus": "ON_SALE"
+        },
+        "category": {
+          "categoryId": "8",
+          "categoryName": "패션잡화"
+        },
+        "shop": {
+          "shopId": "1003",
+          "shopName": "패캠 포티",
+          "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+        },
+        "isNew": true,
+        "isFreeShipping": false
+      },
+      {
+        "type": "PRODUCT",
+        "productId": "78",
+        "productName": "샘플 패션잡화8",
+        "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+        "price": {
+          "originPrice": 30000,
+          "finalPrice": 30000,
+          "salesStatus": "ON_SALE"
+        },
+        "category": {
+          "categoryId": "8",
+          "categoryName": "패션잡화"
+        },
+        "shop": {
+          "shopId": "1003",
+          "shopName": "패캠 포티",
+          "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+        },
+        "isNew": true,
+        "isFreeShipping": false
+      },
+      {
+        "type": "PRODUCT",
+        "productId": "79",
+        "productName": "샘플 패션잡화9",
+        "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+        "price": {
+          "originPrice": 30000,
+          "finalPrice": 30000,
+          "salesStatus": "ON_SALE"
+        },
+        "category": {
+          "categoryId": "8",
+          "categoryName": "패션잡화"
+        },
+        "shop": {
+          "shopId": "1002",
+          "shopName": "패캠샵 지그지그",
+          "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+        },
+        "isNew": true,
+        "isFreeShipping": false
+      },
+      {
+        "type": "PRODUCT",
+        "productId": "710",
+        "productName": "샘플 패션잡화10",
+        "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+        "price": {
+          "originPrice": 30000,
+          "finalPrice": 30000,
+          "salesStatus": "ON_SALE"
+        },
+        "category": {
+          "categoryId": "8",
+          "categoryName": "패션잡화"
+        },
+        "shop": {
+          "shopId": "1002",
+          "shopName": "패캠 지그지그",
+          "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+        },
+        "isNew": true,
+        "isFreeShipping": false
+      },
+      {
+        "type": "PRODUCT",
+        "productId": "72",
+        "productName": "샘플 패션잡화2",
+        "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+        "price": {
+          "originPrice": 30000,
+          "finalPrice": 20000,
+          "salesStatus": "ON_DISCOUNT"
+        },
+        "category": {
+          "categoryId": "8",
+          "categoryName": "패션잡화"
+        },
+        "shop": {
+          "shopId": "1001",
+          "shopName": "패캠샵",
+          "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+        },
+        "isNew": true,
+        "isFreeShipping": false
+      },
+      {
+        "type": "PRODUCT",
+        "productId": "73",
+        "productName": "샘플 패션잡화3",
+        "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+        "price": {
+          "originPrice": 30000,
+          "finalPrice": 30000,
+          "salesStatus": "ON_SALE"
+        },
+        "category": {
+          "categoryId": "8",
+          "categoryName": "패션잡화"
+        },
+        "shop": {
+          "shopId": "1006",
+          "shopName": "패캠크림",
+          "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+        },
+        "isNew": true,
+        "isFreeShipping": false
+      },
+      {
+        "type": "PRODUCT",
+        "productId": "74",
+        "productName": "샘플 패션잡화4",
+        "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+        "price": {
+          "originPrice": 30000,
+          "finalPrice": 30000,
+          "salesStatus": "SOLD_OUT"
+        },
+        "category": {
+          "categoryId": "8",
+          "categoryName": "패션잡화"
+        },
+        "shop": {
+          "shopId": "1006",
+          "shopName": "패캠크림",
+          "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+        },
+        "isNew": true,
+        "isFreeShipping": false
+      }
+    ]
+
+  },
+  {
+    "type": "PRODUCT",
+    "productId": "5",
+    "productName": "샘플 상의5",
+    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+    "price": {
+      "originPrice": 30000,
+      "finalPrice": 30000,
+      "salesStatus": "ON_SALE"
+    },
+    "category": {
+      "categoryId": "1",
+      "categoryName": "상의"
+    },
+    "shop": {
+      "shopId": "1004",
+      "shopName": "패캠신사 ",
+      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+    },
+    "isNew": true,
+    "isFreeShipping": false
+  },
+  {
+    "type": "PRODUCT",
+    "productId": "6",
+    "productName": "샘플 상의6",
+    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+    "price": {
+      "originPrice": 30000,
+      "finalPrice": 20000,
+      "salesStatus": "ON_DISCOUNT"
+    },
+    "category": {
+      "categoryId": "1",
+      "categoryName": "상의"
+    },
+    "shop": {
+      "shopId": "1004",
+      "shopName": "패캠신사",
+      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+    },
+    "isNew": true,
+    "isFreeShipping": false
+  },
+  {
+    "type": "PRODUCT",
+    "productId": "7",
+    "productName": "샘플 상의7",
+    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+    "price": {
+      "originPrice": 30000,
+      "finalPrice": 30000,
+      "salesStatus": "ON_SALE"
+    },
+    "category": {
+      "categoryId": "1",
+      "categoryName": "상의"
+    },
+    "shop": {
+      "shopId": "1003",
+      "shopName": "패캠 포티",
+      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+    },
+    "isNew": true,
+    "isFreeShipping": false
+  },
+  {
+    "type": "PRODUCT",
+    "productId": "8",
+    "productName": "샘플 상의8",
+    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+    "price": {
+      "originPrice": 30000,
+      "finalPrice": 30000,
+      "salesStatus": "ON_SALE"
+    },
+    "category": {
+      "categoryId": "1",
+      "categoryName": "상의"
+    },
+    "shop": {
+      "shopId": "1003",
+      "shopName": "패캠 포티",
+      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+    },
+    "isNew": true,
+    "isFreeShipping": false
+  },
+  {
+    "bannerId": "2",
+    "type": "BANNER",
+    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+  },
+  {
+    "type": "PRODUCT",
+    "productId": "9",
+    "productName": "샘플 상의9",
+    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+    "price": {
+      "originPrice": 30000,
+      "finalPrice": 30000,
+      "salesStatus": "ON_SALE"
+    },
+    "category": {
+      "categoryId": "1",
+      "categoryName": "상의"
+    },
+    "shop": {
+      "shopId": "1002",
+      "shopName": "패캠샵 지그지그",
+      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+    },
+    "isNew": true,
+    "isFreeShipping": false
+  },
+  {
+    "type": "PRODUCT",
+    "productId": "10",
+    "productName": "샘플 상의10",
+    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+    "price": {
+      "originPrice": 30000,
+      "finalPrice": 30000,
+      "salesStatus": "ON_SALE"
+    },
+    "category": {
+      "categoryId": "1",
+      "categoryName": "상의"
+    },
+    "shop": {
+      "shopId": "1002",
+      "shopName": "패캠 지그지그",
+      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+    },
+    "isNew": true,
+    "isFreeShipping": false
+  },
+  {
+    "type": "PRODUCT",
+    "productId": "11",
+    "productName": "샘플 아우터1",
+    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+    "price": {
+      "originPrice": 30000,
+      "finalPrice": 20000,
+      "salesStatus": "ON_DISCOUNT"
+    },
+    "category": {
+      "categoryId": "2",
+      "categoryName": "아우터"
+    },
+    "shop": {
+      "shopId": "1001",
+      "shopName": "패캠샵",
+      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+    },
+    "isNew": true,
+    "isFreeShipping": false
+  },
+  {
+    "type": "PRODUCT",
+    "productId": "12",
+    "productName": "샘플 아우터2",
+    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
+    "price": {
+      "originPrice": 30000,
+      "finalPrice": 20000,
+      "salesStatus": "ON_DISCOUNT"
+    },
+    "category": {
+      "categoryId": "2",
+      "categoryName": "아우터"
+    },
+    "shop": {
+      "shopId": "1001",
+      "shopName": "패캠샵",
+      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
+    },
+    "isNew": true,
+    "isFreeShipping": false
+  },
+  {
     "type": "CAROUSEL",
     "carouselId": "1",
     "title": "인기 상품 모음",
@@ -138,285 +623,6 @@
       }
     ]
 
-  },
-  {
-    "bannerId": "1",
-    "type": "BANNER_LIST",
-    "imageList": [
-      "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-      "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-      "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-      "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    ]
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "1",
-    "productName": "샘플 상의1",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 20000,
-      "salesStatus": "ON_DISCOUNT"
-    },
-    "category": {
-      "categoryId": "1",
-      "categoryName": "상의"
-    },
-    "shop": {
-      "shopId": "1001",
-      "shopName": "패캠샵",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "2",
-    "productName": "샘플 상의2",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 20000,
-      "salesStatus": "ON_DISCOUNT"
-    },
-    "category": {
-      "categoryId": "1",
-      "categoryName": "상의"
-    },
-    "shop": {
-      "shopId": "1001",
-      "shopName": "패캠샵",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "3",
-    "productName": "샘플 상의3",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 30000,
-      "salesStatus": "ON_SALE"
-    },
-    "category": {
-      "categoryId": "1",
-      "categoryName": "상의"
-    },
-    "shop": {
-      "shopId": "1006",
-      "shopName": "패캠크림",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "4",
-    "productName": "샘플 상의4",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 30000,
-      "salesStatus": "SOLD_OUT"
-    },
-    "category": {
-      "categoryId": "1",
-      "categoryName": "상의"
-    },
-    "shop": {
-      "shopId": "1006",
-      "shopName": "패캠크림",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "5",
-    "productName": "샘플 상의5",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 30000,
-      "salesStatus": "ON_SALE"
-    },
-    "category": {
-      "categoryId": "1",
-      "categoryName": "상의"
-    },
-    "shop": {
-      "shopId": "1004",
-      "shopName": "패캠신사 ",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "6",
-    "productName": "샘플 상의6",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 20000,
-      "salesStatus": "ON_DISCOUNT"
-    },
-    "category": {
-      "categoryId": "1",
-      "categoryName": "상의"
-    },
-    "shop": {
-      "shopId": "1004",
-      "shopName": "패캠신사",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "bannerId": "2",
-    "type": "BANNER",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "7",
-    "productName": "샘플 상의7",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 30000,
-      "salesStatus": "ON_SALE"
-    },
-    "category": {
-      "categoryId": "1",
-      "categoryName": "상의"
-    },
-    "shop": {
-      "shopId": "1003",
-      "shopName": "패캠 포티",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "8",
-    "productName": "샘플 상의8",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 30000,
-      "salesStatus": "ON_SALE"
-    },
-    "category": {
-      "categoryId": "1",
-      "categoryName": "상의"
-    },
-    "shop": {
-      "shopId": "1003",
-      "shopName": "패캠 포티",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "9",
-    "productName": "샘플 상의9",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 30000,
-      "salesStatus": "ON_SALE"
-    },
-    "category": {
-      "categoryId": "1",
-      "categoryName": "상의"
-    },
-    "shop": {
-      "shopId": "1002",
-      "shopName": "패캠샵 지그지그",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "10",
-    "productName": "샘플 상의10",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 30000,
-      "salesStatus": "ON_SALE"
-    },
-    "category": {
-      "categoryId": "1",
-      "categoryName": "상의"
-    },
-    "shop": {
-      "shopId": "1002",
-      "shopName": "패캠 지그지그",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "11",
-    "productName": "샘플 아우터1",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 20000,
-      "salesStatus": "ON_DISCOUNT"
-    },
-    "category": {
-      "categoryId": "2",
-      "categoryName": "아우터"
-    },
-    "shop": {
-      "shopId": "1001",
-      "shopName": "패캠샵",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "12",
-    "productName": "샘플 아우터2",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 20000,
-      "salesStatus": "ON_DISCOUNT"
-    },
-    "category": {
-      "categoryId": "2",
-      "categoryName": "아우터"
-    },
-    "shop": {
-      "shopId": "1001",
-      "shopName": "패캠샵",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
   },
   {
     "type": "PRODUCT",
@@ -1725,72 +1931,6 @@
     "shop": {
       "shopId": "1001",
       "shopName": "패캠샵",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "72",
-    "productName": "샘플 패션잡화2",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 20000,
-      "salesStatus": "ON_DISCOUNT"
-    },
-    "category": {
-      "categoryId": "8",
-      "categoryName": "패션잡화"
-    },
-    "shop": {
-      "shopId": "1001",
-      "shopName": "패캠샵",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "73",
-    "productName": "샘플 패션잡화3",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 30000,
-      "salesStatus": "ON_SALE"
-    },
-    "category": {
-      "categoryId": "8",
-      "categoryName": "패션잡화"
-    },
-    "shop": {
-      "shopId": "1006",
-      "shopName": "패캠크림",
-      "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
-    },
-    "isNew": true,
-    "isFreeShipping": false
-  },
-  {
-    "type": "PRODUCT",
-    "productId": "74",
-    "productName": "샘플 패션잡화4",
-    "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554",
-    "price": {
-      "originPrice": 30000,
-      "finalPrice": 30000,
-      "salesStatus": "SOLD_OUT"
-    },
-    "category": {
-      "categoryId": "8",
-      "categoryName": "패션잡화"
-    },
-    "shop": {
-      "shopId": "1006",
-      "shopName": "패캠크림",
       "imageUrl": "https://lh3.googleusercontent.com/u/0/drive-viewer/AAOQEOQILUntLBKqY9rCtdiiznuQYsm15KCzNKPQNf9xCNrhpkl7QonYiqCVuN8aAkYXA1DBgTOtjITxN5eZRmQVDXvxavm_=w3024-h1554"
     },
     "isNew": true,
