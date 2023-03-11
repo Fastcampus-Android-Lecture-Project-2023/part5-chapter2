@@ -10,6 +10,7 @@ import fastcampus.part5.domain.model.BaseModel
 import fastcampus.part5.domain.model.Carousel
 import fastcampus.part5.domain.model.ModelType
 import fastcampus.part5.domain.model.Product
+import fastcampus.part5.domain.model.Ranking
 import java.lang.reflect.Type
 
 class BaseModelDeserializer : JsonDeserializer<BaseModel> {
@@ -28,6 +29,7 @@ class BaseModelDeserializer : JsonDeserializer<BaseModel> {
             ModelType.PRODUCT -> gson.fromJson(root, Product::class.java)
             ModelType.BANNER_LIST -> gson.fromJson(root, BannerList::class.java)
             ModelType.CAROUSEL -> gson.fromJson(root, Carousel::class.java)
+            ModelType.RANKING -> gson.fromJson(root, Ranking::class.java)
         }
     }
 }

@@ -22,6 +22,7 @@ import fastcampus.part5.chapter2.ui.component.BannerCard
 import fastcampus.part5.chapter2.ui.component.BannerListCard
 import fastcampus.part5.chapter2.ui.component.CarouselCard
 import fastcampus.part5.chapter2.ui.component.ProductCard
+import fastcampus.part5.chapter2.ui.component.RankingCard
 import fastcampus.part5.chapter2.viewmodel.MainViewModel
 import fastcampus.part5.di.R
 import fastcampus.part5.domain.model.Banner
@@ -29,6 +30,7 @@ import fastcampus.part5.domain.model.BannerList
 import fastcampus.part5.domain.model.Carousel
 import fastcampus.part5.domain.model.ModelType
 import fastcampus.part5.domain.model.Product
+import fastcampus.part5.domain.model.Ranking
 
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -57,6 +59,9 @@ fun MainInsideScreen(viewModel: MainViewModel) {
                 is Carousel -> CarouselCard(model = item) { model ->
                     viewModel.openCarouselProduct(model)
                 }
+                is Ranking -> RankingCard(model = item) { model ->
+                    viewModel.openRankingProduct(model)
+                }
             }
         }
     }
@@ -66,6 +71,6 @@ private fun getSpanCountByType(type: ModelType, defaultColumnCount: Int): Int {
     return when (type) {
         ModelType.PRODUCT -> 1
         ModelType.BANNER, ModelType.BANNER_LIST,
-        ModelType.CAROUSEL -> defaultColumnCount
+        ModelType.CAROUSEL, ModelType.RANKING -> defaultColumnCount
     }
 }
