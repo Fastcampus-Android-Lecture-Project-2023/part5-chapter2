@@ -50,9 +50,10 @@ class MainViewModel @Inject constructor(mainUseCase: MainUseCase, categoryUseCas
         }
     }
 
-    override fun openProduct(product: Product) {
-
+    override fun openProduct(navHostController: NavHostController, product: Product) {
+        NavigationUtils.navigate(navHostController,NavigationRouteName.PRODUCT_DETAIL, product)
     }
+
     override fun openBanner(bannerId: String) {
 
     }

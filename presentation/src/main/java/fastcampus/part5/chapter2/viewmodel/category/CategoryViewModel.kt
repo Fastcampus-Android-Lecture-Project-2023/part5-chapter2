@@ -1,9 +1,12 @@
 package fastcampus.part5.chapter2.viewmodel.category
 
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavHostController
 import dagger.hilt.android.lifecycle.HiltViewModel
 import fastcampus.part5.chapter2.delegate.ProductDelegate
 import fastcampus.part5.chapter2.model.ProductVM
+import fastcampus.part5.chapter2.ui.NavigationRouteName
+import fastcampus.part5.chapter2.utils.NavigationUtils
 import fastcampus.part5.domain.model.Category
 import fastcampus.part5.domain.model.Product
 import fastcampus.part5.domain.usecase.CategoryUseCase
@@ -25,8 +28,8 @@ class CategoryViewModel @Inject constructor(
         }
     }
 
-    override fun openProduct(product: Product) {
-
+    override fun openProduct(navHostController: NavHostController, product: Product) {
+        NavigationUtils.navigate(navHostController,NavigationRouteName.PRODUCT_DETAIL, product)
     }
 
     private fun convertToPresentationVM(list: List<Product>) : List<ProductVM> {

@@ -25,9 +25,11 @@ import com.google.gson.Gson
 import fastcampus.part5.chapter2.ui.category.CategoryScreen
 import fastcampus.part5.chapter2.ui.main.MainCategoryScreen
 import fastcampus.part5.chapter2.ui.main.MainHomeScreen
+import fastcampus.part5.chapter2.ui.product_detail.ProductDetailScreen
 import fastcampus.part5.chapter2.ui.theme.MyApplicationTheme
 import fastcampus.part5.chapter2.viewmodel.MainViewModel
 import fastcampus.part5.domain.model.Category
+import fastcampus.part5.domain.model.Product
 
 
 @Preview(showBackground = true)
@@ -50,7 +52,7 @@ fun MainScreen() {
         topBar = { Header(viewModel) },
         scaffoldState = scaffoldState,
         bottomBar = {
-            if(NavigationItem.MainNav.isMainRoute(currentRoute)) {
+            if (NavigationItem.MainNav.isMainRoute(currentRoute)) {
                 MainBottomNavigationBar(navController, currentRoute)
             }
         }
@@ -60,9 +62,9 @@ fun MainScreen() {
 }
 
 @Composable
-fun Header(viewModel : MainViewModel) {
+fun Header(viewModel: MainViewModel) {
     TopAppBar(
-        title = { Text("My App")},
+        title = { Text("My App") },
         actions = {
             IconButton(onClick = {
                 viewModel.openSearchForm()
@@ -84,11 +86,10 @@ fun MainBottomNavigationBar(navController: NavHostController, currentRoute: Stri
 
     BottomNavigation {
 
-        bottomNavigationItems.forEach {  item ->
+        bottomNavigationItems.forEach { item ->
             BottomNavigationItem(
-                icon = { Icon(item.icon, item.route)},
-                selected = currentRoute == item.route
-                , onClick = {
+                icon = { Icon(item.icon, item.route) },
+                selected = currentRoute == item.route, onClick = {
                     navController.navigate(item.route) {
                         navController.graph.startDestinationRoute?.let {
                             popUpTo(it) {
@@ -101,7 +102,7 @@ fun MainBottomNavigationBar(navController: NavHostController, currentRoute: Stri
                     }
 
                 })
-            }
+        }
     }
 }
 
@@ -109,7 +110,7 @@ fun MainBottomNavigationBar(navController: NavHostController, currentRoute: Stri
 fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostController) {
     NavHost(navController = navController, startDestination = NavigationRouteName.MAIN_HOME) {
         composable(NavigationRouteName.MAIN_HOME) {
-            MainHomeScreen(viewModel)
+            MainHomeScreen(navController, viewModel)
         }
         composable(NavigationRouteName.MAIN_CATEGORY) {
             MainCategoryScreen(viewModel, navController)
@@ -117,13 +118,23 @@ fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostControl
         composable(NavigationRouteName.MAIN_MY_PAGE) {
             Text(text = "Hello MyPage")
         }
-        composable(NavigationRouteName.CATEGORY + "/{category}",
-        arguments = listOf(navArgument("category") { type = NavType.StringType })
+        composable(
+            NavigationRouteName.CATEGORY + "/{category}",
+            arguments = listOf(navArgument("category") { type = NavType.StringType })
         ) {
             val categoryString = it.arguments?.getString("category")
-            val category =  Gson().fromJson(categoryString, Category::class.java)
-            if(category != null ){
-                CategoryScreen(category = category)
+            val category = Gson().fromJson(categoryString, Category::class.java)
+            if (category != null) {
+                CategoryScreen(navHostController= navController, category = category)
+            }
+        }
+        composable(
+            NavigationRouteName.PRODUCT_DETAIL + "/{product}",
+            arguments = listOf(navArgument("product") { type = NavType.StringType })
+        ) {
+            val productString = it.arguments?.getString("product")
+            if (productString != null) {
+                ProductDetailScreen(productString)
             }
         }
     }
