@@ -1,5 +1,7 @@
 package fastcampus.part5.domain.model
 
+import android.os.Parcelable
+
 open class Category(
     val categoryId: String,
     val categoryName: String,

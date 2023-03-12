@@ -23,7 +23,7 @@ import fastcampus.part5.domain.model.Ranking
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomeScreen(viewModel: MainViewModel) {
+fun MainHomeScreen(viewModel: MainViewModel) {
     val modelList by viewModel.modelList.collectAsState(initial = listOf())
     val columnCount by viewModel.columnCount.collectAsState()
 
