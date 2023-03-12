@@ -24,6 +24,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import fastcampus.part5.chapter2.delegate.ProductDelegate
+import fastcampus.part5.chapter2.model.ProductVM
 import fastcampus.part5.chapter2.ui.theme.Purple200
 import fastcampus.part5.di.R
 import fastcampus.part5.domain.model.Category
@@ -34,7 +36,7 @@ import fastcampus.part5.domain.model.Shop
 
 
 @Composable
-fun ProductCard(product: Product, onClick: (Product) -> Unit?) {
+fun ProductCard(presentationVM: ProductVM) {
     Card(
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier
@@ -61,13 +63,13 @@ fun ProductCard(product: Product, onClick: (Product) -> Unit?) {
             Text(
                 fontSize = 14.sp,
                 fontWeight = FontWeight.SemiBold,
-                text = product.shop.shopName
+                text = presentationVM.model.shop.shopName
             )
             Text(
                 fontSize = 14.sp,
-                text = product.productName
+                text = presentationVM.model.productName
             )
-            Price(product)
+            Price(presentationVM.model)
         }
     }
 }
@@ -108,8 +110,8 @@ fun Price(product: Product) {
 @Preview
 @Composable
 private fun PreviewProductCard() {
-    ProductCard(
-        product = Product(
+    ProductCard(ProductVM(
+        model = Product(
             productId = "1",
             productName = "상품 이름",
             imageUrl = "",
@@ -126,16 +128,21 @@ private fun PreviewProductCard() {
             ),
             isNew = false,
             isFreeShipping = false
-        )
-    ) {
-    }
+        ),
+        object : ProductDelegate {
+            override fun openProduct(product: Product) {
+            }
+        }
+    )
+    )
+
 }
 
 @Preview
 @Composable
 private fun PreviewProductCardDiscount() {
-    ProductCard(
-        product = Product(
+    ProductCard(ProductVM(
+        model = Product(
             productId = "1",
             productName = "상품 이름",
             imageUrl = "",
@@ -152,22 +159,26 @@ private fun PreviewProductCardDiscount() {
             ),
             isNew = false,
             isFreeShipping = false
-        )
-    ) {
-    }
+        ),
+        object : ProductDelegate {
+            override fun openProduct(product: Product) {
+            }
+        }
+    )
+    )
 }
 
 @Preview
 @Composable
 private fun PreviewProductCardSoldOut() {
-    ProductCard(
-        product = Product(
+    ProductCard(ProductVM(
+        model = Product(
             productId = "1",
             productName = "상품 이름",
             imageUrl = "",
             price = Price(
                 30000,
-                30000,
+                20000,
                 SalesStatus.SOLD_OUT,
             ),
             category = Category.Top,
@@ -178,7 +189,11 @@ private fun PreviewProductCardSoldOut() {
             ),
             isNew = false,
             isFreeShipping = false
-        )
-    ) {
-    }
+        ),
+        object : ProductDelegate {
+            override fun openProduct(product: Product) {
+            }
+        }
+    )
+    )
 }

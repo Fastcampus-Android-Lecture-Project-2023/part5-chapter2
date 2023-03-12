@@ -1,6 +1,6 @@
 package fastcampus.part5.domain.model
 
-abstract class BaseModel {
+sealed class BaseModel {
     abstract val type : ModelType
 }
 

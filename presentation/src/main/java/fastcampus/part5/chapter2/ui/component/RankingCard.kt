@@ -19,19 +19,20 @@ import androidx.compose.ui.unit.sp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
+import fastcampus.part5.chapter2.model.RankingVM
 import fastcampus.part5.di.R
 import fastcampus.part5.domain.model.Product
 import fastcampus.part5.domain.model.Ranking
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun RankingCard(model: Ranking, onClick: (Product) -> Unit) {
+fun RankingCard(presentationVM: RankingVM) {
     val pagerState = rememberPagerState()
-    val pageCount = model.productList.size / DEFAULT_RANKING_ITEM_COUNT
+    val pageCount = presentationVM.model.productList.size / DEFAULT_RANKING_ITEM_COUNT
 
     Column {
         Text(
-            text = model.title,
+            text = presentationVM.model.title,
             fontSize = 16.sp,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier.padding(10.dp,0.dp,0.dp,0.dp)
@@ -41,9 +42,15 @@ fun RankingCard(model: Ranking, onClick: (Product) -> Unit) {
             contentPadding = PaddingValues(end = 50.dp)
         ) { index ->
             Column {
-                RankingProductCard(index * 3, model.productList[index * 3], onClick)
-                RankingProductCard(index * 3 + 1, model.productList[index * 3 + 1], onClick)
-                RankingProductCard(index * 3 + 2, model.productList[index * 3 + 2], onClick)
+                RankingProductCard(index * 3, presentationVM.model.productList[index * 3]) { product ->
+                    presentationVM.openRankingProduct(product)
+                }
+                RankingProductCard(index * 3 + 1, presentationVM.model.productList[index * 3 + 1]) { product ->
+                    presentationVM.openRankingProduct(product)
+                }
+                RankingProductCard(index * 3 + 2, presentationVM.model.productList[index * 3 + 2])  { product ->
+                    presentationVM.openRankingProduct(product)
+                }
             }
         }
     }
