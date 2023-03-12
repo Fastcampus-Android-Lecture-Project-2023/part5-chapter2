@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavHostController
 import dagger.hilt.android.lifecycle.HiltViewModel
+import fastcampus.part5.chapter2.delegate.ProductDelegate
+import fastcampus.part5.chapter2.model.RankingVM
 import fastcampus.part5.chapter2.ui.NavigationItem
 import fastcampus.part5.chapter2.ui.NavigationRouteName
 import fastcampus.part5.chapter2.utils.NavigationUtils
@@ -11,6 +13,7 @@ import fastcampus.part5.domain.model.Banner
 import fastcampus.part5.domain.model.BannerList
 import fastcampus.part5.domain.model.Category
 import fastcampus.part5.domain.model.Product
+import fastcampus.part5.domain.model.Ranking
 import fastcampus.part5.domain.usecase.CategoryUseCase
 import fastcampus.part5.domain.usecase.MainUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,7 +22,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(mainUseCase: MainUseCase, categoryUseCase: CategoryUseCase) : ViewModel() {
+class MainViewModel @Inject constructor(mainUseCase: MainUseCase, categoryUseCase: CategoryUseCase)
+    : ViewModel(), ProductDelegate {
     private val _columnCount = MutableStateFlow(DEFAULT_COLUMN_COUNT)
     val columnCount: StateFlow<Int> = _columnCount
     val modelList = mainUseCase.getModelList()
@@ -35,7 +39,7 @@ class MainViewModel @Inject constructor(mainUseCase: MainUseCase, categoryUseCas
         }
     }
 
-    fun openProduct(product: Product) {
+    override fun openProduct(product: Product) {
 
     }
 
