@@ -5,15 +5,18 @@ import androidx.room.RoomDatabase
 import fastcampus.part5.data.db.dao.BasketDao
 import fastcampus.part5.data.db.dao.LikeDao
 import fastcampus.part5.data.db.dao.PurchaseDao
+import fastcampus.part5.data.db.dao.SearchDao
 import fastcampus.part5.data.db.entity.BasketProductEntity
 import fastcampus.part5.data.db.entity.LikeProductEntity
 import fastcampus.part5.data.db.entity.PurchaseProductEntity
+import fastcampus.part5.data.db.entity.SearchKeywordEntity
 
 @Database(
     entities = [
         PurchaseProductEntity::class,
         LikeProductEntity::class,
         BasketProductEntity::class,
+        SearchKeywordEntity::class,
     ],
     version = 1
 )
@@ -27,4 +30,6 @@ abstract class ApplicationDatabase : RoomDatabase() {
     abstract fun likeDao() : LikeDao
 
     abstract fun basketDao() : BasketDao
+
+    abstract fun searchDao() : SearchDao
 }
