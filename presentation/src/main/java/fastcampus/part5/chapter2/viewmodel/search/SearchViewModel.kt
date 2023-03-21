@@ -9,6 +9,7 @@ import fastcampus.part5.chapter2.model.ProductVM
 import fastcampus.part5.chapter2.ui.NavigationRouteName
 import fastcampus.part5.chapter2.utils.NavigationUtils
 import fastcampus.part5.domain.model.Product
+import fastcampus.part5.domain.model.SearchFilter
 import fastcampus.part5.domain.model.SearchKeyword
 import fastcampus.part5.domain.usecase.SearchUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,15 +24,31 @@ class SearchViewModel @Inject constructor(
     private val useCase: SearchUseCase
 ) : ViewModel(), ProductDelegate{
 
+    private val searchManager = SearchManager()
     private val _searchResult = MutableStateFlow<List<ProductVM>>(listOf())
     val searchResult : StateFlow<List<ProductVM>> = _searchResult
     val searchKeywords = useCase.getSearchKeywords()
+    val searchFilters = searchManager.filters
 
     fun search(keyword: String) {
         viewModelScope.launch {
-            useCase.search(SearchKeyword(keyword = keyword)).collectLatest {
-                _searchResult.emit(it.map(::convertToProductVM))
-            }
+            searchInternal(keyword)
+        }
+    }
+
+    fun updateFilter(filter: SearchFilter) {
+        viewModelScope.launch {
+            searchManager.updateFilter(filter)
+
+            searchInternal()
+        }
+    }
+
+    private suspend fun searchInternal(newSearchKeyword: String = "") {
+        useCase.search(searchManager.searchKeyword, searchManager.currentFilters()).collectLatest {
+            if(newSearchKeyword.isNotEmpty()) searchManager.initSearchManager(newSearchKeyword, it)
+
+            _searchResult.emit(it.map(::convertToProductVM))
         }
     }
 
