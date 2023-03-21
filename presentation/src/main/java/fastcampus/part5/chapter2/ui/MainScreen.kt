@@ -26,10 +26,10 @@ import fastcampus.part5.chapter2.ui.category.CategoryScreen
 import fastcampus.part5.chapter2.ui.main.MainCategoryScreen
 import fastcampus.part5.chapter2.ui.main.MainHomeScreen
 import fastcampus.part5.chapter2.ui.product_detail.ProductDetailScreen
+import fastcampus.part5.chapter2.ui.search.SearchScreen
 import fastcampus.part5.chapter2.ui.theme.MyApplicationTheme
 import fastcampus.part5.chapter2.viewmodel.MainViewModel
 import fastcampus.part5.domain.model.Category
-import fastcampus.part5.domain.model.Product
 
 
 @Preview(showBackground = true)
@@ -49,7 +49,9 @@ fun MainScreen() {
     val currentRoute = navBackStackEntry?.destination?.route
 
     Scaffold(
-        topBar = { Header(viewModel) },
+        topBar = { if(NavigationItem.MainNav.isMainRoute(currentRoute)){
+                MainHeader(viewModel = viewModel, navController = navController)
+            } },
         scaffoldState = scaffoldState,
         bottomBar = {
             if (NavigationItem.MainNav.isMainRoute(currentRoute)) {
@@ -62,12 +64,12 @@ fun MainScreen() {
 }
 
 @Composable
-fun Header(viewModel: MainViewModel) {
+fun MainHeader(viewModel: MainViewModel, navController: NavHostController) {
     TopAppBar(
         title = { Text("My App") },
         actions = {
             IconButton(onClick = {
-                viewModel.openSearchForm()
+                viewModel.openSearchForm(navController)
             }) {
                 Icon(Icons.Filled.Search, "SearchIcon")
             }
@@ -136,6 +138,9 @@ fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostControl
             if (productString != null) {
                 ProductDetailScreen(productString)
             }
+        }
+        composable(NavigationRouteName.SEARCH) {
+            SearchScreen(navController)
         }
     }
 }
