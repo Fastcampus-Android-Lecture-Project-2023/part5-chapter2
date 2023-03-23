@@ -16,6 +16,7 @@ import fastcampus.part5.chapter2.model.RankingVM
 import fastcampus.part5.chapter2.ui.NavigationItem
 import fastcampus.part5.chapter2.ui.NavigationRouteName
 import fastcampus.part5.chapter2.utils.NavigationUtils
+import fastcampus.part5.domain.model.AccountInfo
 import fastcampus.part5.domain.model.Banner
 import fastcampus.part5.domain.model.BannerList
 import fastcampus.part5.domain.model.BaseModel
@@ -24,6 +25,7 @@ import fastcampus.part5.domain.model.Category
 import fastcampus.part5.domain.model.ModelType
 import fastcampus.part5.domain.model.Product
 import fastcampus.part5.domain.model.Ranking
+import fastcampus.part5.domain.usecase.AccountUseCase
 import fastcampus.part5.domain.usecase.CategoryUseCase
 import fastcampus.part5.domain.usecase.MainUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -33,15 +35,29 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(mainUseCase: MainUseCase, categoryUseCase: CategoryUseCase)
+class MainViewModel @Inject constructor(mainUseCase: MainUseCase, categoryUseCase: CategoryUseCase,
+private val accountUseCase: AccountUseCase)
     : ViewModel(), ProductDelegate, BannerDelegate, CategoryDelegate {
     private val _columnCount = MutableStateFlow(DEFAULT_COLUMN_COUNT)
     val columnCount: StateFlow<Int> = _columnCount
     val modelList = mainUseCase.getModelList().map(::convertToPresentationVM)
     val categories = categoryUseCase.getCategories()
+    val accountInfo = accountUseCase.getAccountInfo()
 
     fun openSearchForm(navHostController: NavHostController) {
         NavigationUtils.navigate(navHostController, NavigationRouteName.SEARCH)
+    }
+
+    fun signInGoogle(accountInfo: AccountInfo) {
+        viewModelScope.launch {
+            accountUseCase.signInGoogle(accountInfo)
+        }
+    }
+
+    fun signOutGoogle() {
+        viewModelScope.launch {
+            accountUseCase.signOutGoogle()
+        }
     }
 
     fun updateColumnCount(count: Int) {

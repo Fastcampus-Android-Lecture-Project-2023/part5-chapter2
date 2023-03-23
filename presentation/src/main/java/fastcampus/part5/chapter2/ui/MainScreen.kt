@@ -21,27 +21,20 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.gson.Gson
 import fastcampus.part5.chapter2.ui.category.CategoryScreen
 import fastcampus.part5.chapter2.ui.main.MainCategoryScreen
 import fastcampus.part5.chapter2.ui.main.MainHomeScreen
+import fastcampus.part5.chapter2.ui.main.MyPageScreen
 import fastcampus.part5.chapter2.ui.product_detail.ProductDetailScreen
 import fastcampus.part5.chapter2.ui.search.SearchScreen
 import fastcampus.part5.chapter2.ui.theme.MyApplicationTheme
 import fastcampus.part5.chapter2.viewmodel.MainViewModel
 import fastcampus.part5.domain.model.Category
 
-
-@Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
-    MyApplicationTheme {
-        MainScreen()
-    }
-}
-
-@Composable
-fun MainScreen() {
+fun MainScreen(googleSignInClient: GoogleSignInClient) {
     val viewModel = hiltViewModel<MainViewModel>()
     val scaffoldState = rememberScaffoldState()
     val navController = rememberNavController()
@@ -49,9 +42,11 @@ fun MainScreen() {
     val currentRoute = navBackStackEntry?.destination?.route
 
     Scaffold(
-        topBar = { if(NavigationItem.MainNav.isMainRoute(currentRoute)){
+        topBar = {
+            if (NavigationItem.MainNav.isMainRoute(currentRoute)) {
                 MainHeader(viewModel = viewModel, navController = navController)
-            } },
+            }
+        },
         scaffoldState = scaffoldState,
         bottomBar = {
             if (NavigationItem.MainNav.isMainRoute(currentRoute)) {
@@ -59,7 +54,7 @@ fun MainScreen() {
             }
         }
     ) {
-        MainNavigationScreen(viewModel = viewModel, navController = navController)
+        MainNavigationScreen(viewModel = viewModel, navController = navController, googleSignInClient)
     }
 }
 
@@ -109,7 +104,7 @@ fun MainBottomNavigationBar(navController: NavHostController, currentRoute: Stri
 }
 
 @Composable
-fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostController) {
+fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostController, googleSignInClient: GoogleSignInClient) {
     NavHost(navController = navController, startDestination = NavigationRouteName.MAIN_HOME) {
         composable(NavigationRouteName.MAIN_HOME) {
             MainHomeScreen(navController, viewModel)
@@ -118,7 +113,7 @@ fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostControl
             MainCategoryScreen(viewModel, navController)
         }
         composable(NavigationRouteName.MAIN_MY_PAGE) {
-            Text(text = "Hello MyPage")
+            MyPageScreen(viewModel = viewModel, googleSignInClient = googleSignInClient)
         }
         composable(
             NavigationRouteName.CATEGORY + "/{category}",
@@ -127,7 +122,7 @@ fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostControl
             val categoryString = it.arguments?.getString("category")
             val category = Gson().fromJson(categoryString, Category::class.java)
             if (category != null) {
-                CategoryScreen(navHostController= navController, category = category)
+                CategoryScreen(navHostController = navController, category = category)
             }
         }
         composable(
