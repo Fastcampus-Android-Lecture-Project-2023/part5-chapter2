@@ -25,6 +25,7 @@ import fastcampus.part5.domain.model.Product
 import fastcampus.part5.domain.model.Ranking
 import fastcampus.part5.domain.usecase.AccountUseCase
 import fastcampus.part5.domain.usecase.CategoryUseCase
+import fastcampus.part5.domain.usecase.LikeUseCase
 import fastcampus.part5.domain.usecase.MainUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -36,12 +37,14 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val mainUseCase: MainUseCase,
     categoryUseCase: CategoryUseCase,
-private val accountUseCase: AccountUseCase)
-    : ViewModel(), ProductDelegate, BannerDelegate, CategoryDelegate {
+    private val accountUseCase: AccountUseCase,
+    likeUseCase: LikeUseCase
+) : ViewModel(), ProductDelegate, BannerDelegate, CategoryDelegate {
     private val _columnCount = MutableStateFlow(DEFAULT_COLUMN_COUNT)
     val columnCount: StateFlow<Int> = _columnCount
     val modelList = mainUseCase.getModelList().map(::convertToPresentationVM)
     val categories = categoryUseCase.getCategories()
+    val likeProducts = likeUseCase.getLikeProducts().map(::convertToPresentationVM)
     val accountInfo = accountUseCase.getAccountInfo()
 
     fun openSearchForm(navHostController: NavHostController) {
@@ -73,7 +76,7 @@ private val accountUseCase: AccountUseCase)
     }
 
     override fun openProduct(navHostController: NavHostController, product: Product) {
-        NavigationUtils.navigate(navHostController,NavigationRouteName.PRODUCT_DETAIL, product)
+        NavigationUtils.navigate(navHostController, NavigationRouteName.PRODUCT_DETAIL, product)
     }
 
     override fun openBanner(bannerId: String) {
@@ -81,17 +84,17 @@ private val accountUseCase: AccountUseCase)
     }
 
     override fun openCategory(navHostController: NavHostController, category: Category) {
-        NavigationUtils.navigate(navHostController,NavigationRouteName.CATEGORY, category)
+        NavigationUtils.navigate(navHostController, NavigationRouteName.CATEGORY, category)
     }
 
-    private fun convertToPresentationVM(list: List<BaseModel>) : List<PresentationVM<out BaseModel>> {
+    private fun convertToPresentationVM(list: List<BaseModel>): List<PresentationVM<out BaseModel>> {
         return list.map { model ->
-            when(model) {
-                is Product -> ProductVM(model,this)
-                is Ranking -> RankingVM(model,this)
-                is Carousel -> CarouselVM(model,this)
-                is Banner -> BannerVM(model,this)
-                is BannerList -> BannerListVM(model,this)
+            when (model) {
+                is Product -> ProductVM(model, this)
+                is Ranking -> RankingVM(model, this)
+                is Carousel -> CarouselVM(model, this)
+                is Banner -> BannerVM(model, this)
+                is BannerList -> BannerListVM(model, this)
             }
         }
     }

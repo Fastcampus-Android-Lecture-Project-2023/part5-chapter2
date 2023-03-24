@@ -24,6 +24,7 @@ import androidx.navigation.navArgument
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.gson.Gson
 import fastcampus.part5.chapter2.ui.category.CategoryScreen
+import fastcampus.part5.chapter2.ui.main.LikeScreen
 import fastcampus.part5.chapter2.ui.main.MainCategoryScreen
 import fastcampus.part5.chapter2.ui.main.MainHomeScreen
 import fastcampus.part5.chapter2.ui.main.MyPageScreen
@@ -78,6 +79,7 @@ fun MainBottomNavigationBar(navController: NavHostController, currentRoute: Stri
     val bottomNavigationItems = listOf(
         NavigationItem.MainNav.Home,
         NavigationItem.MainNav.Category,
+        NavigationItem.MainNav.LIKE,
         NavigationItem.MainNav.MyPage,
     )
 
@@ -114,6 +116,9 @@ fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostControl
         }
         composable(NavigationRouteName.MAIN_MY_PAGE) {
             MyPageScreen(viewModel = viewModel, googleSignInClient = googleSignInClient)
+        }
+        composable(NavigationRouteName.MAIN_LIKE) {
+            LikeScreen(navController, viewModel)
         }
         composable(
             NavigationRouteName.CATEGORY + "/{category}",
