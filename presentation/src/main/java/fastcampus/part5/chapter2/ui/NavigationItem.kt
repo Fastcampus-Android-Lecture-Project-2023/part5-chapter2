@@ -6,6 +6,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.ui.graphics.vector.ImageVector
+import fastcampus.part5.chapter2.ui.NavigationRouteName.BASKET
 import fastcampus.part5.chapter2.ui.NavigationRouteName.CATEGORY
 import fastcampus.part5.chapter2.ui.NavigationRouteName.MAIN_CATEGORY
 import fastcampus.part5.chapter2.ui.NavigationRouteName.MAIN_HOME
@@ -38,6 +39,8 @@ sealed class NavigationItem(open val route: String) {
     data class ProductDetailNav(val product: Product) : NavigationItem(PRODUCT_DETAIL)
 
     object SearchNav : NavigationItem(SEARCH)
+
+    object BasketNav : NavigationItem(BASKET)
 }
 
 object NavigationRouteName {
@@ -48,4 +51,5 @@ object NavigationRouteName {
     const val CATEGORY = "category"
     const val PRODUCT_DETAIL = "product_detail"
     const val SEARCH = "search"
+    const val BASKET = "basket"
 }

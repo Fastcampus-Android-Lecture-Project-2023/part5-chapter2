@@ -1,6 +1,8 @@
 package fastcampus.part5.data.repository
 
 import fastcampus.part5.data.datasource.PreferenceDatasource
+import fastcampus.part5.data.db.dao.BasketDao
+import fastcampus.part5.data.db.dao.LikeDao
 import fastcampus.part5.domain.model.AccountInfo
 import fastcampus.part5.domain.repository.AccountRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -8,7 +10,9 @@ import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 class AccountRepositoryImpl @Inject constructor(
-    private val preferenceDatasource: PreferenceDatasource
+    private val preferenceDatasource: PreferenceDatasource,
+    private val basketDao: BasketDao,
+    private val likeDao: LikeDao,
 ) : AccountRepository {
     private val accountInfoFlow = MutableStateFlow(preferenceDatasource.getAccountInfo())
 
@@ -24,5 +28,7 @@ class AccountRepositoryImpl @Inject constructor(
     override suspend fun signOut() {
         preferenceDatasource.removeAccountInfo()
         accountInfoFlow.emit(null)
+        basketDao.deleteAll()
+        likeDao.deleteAll()
     }
 }

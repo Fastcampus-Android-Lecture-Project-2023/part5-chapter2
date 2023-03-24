@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -23,6 +24,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.gson.Gson
+import fastcampus.part5.chapter2.ui.basket.BasketScreen
 import fastcampus.part5.chapter2.ui.category.CategoryScreen
 import fastcampus.part5.chapter2.ui.main.LikeScreen
 import fastcampus.part5.chapter2.ui.main.MainCategoryScreen
@@ -68,6 +70,11 @@ fun MainHeader(viewModel: MainViewModel, navController: NavHostController) {
                 viewModel.openSearchForm(navController)
             }) {
                 Icon(Icons.Filled.Search, "SearchIcon")
+            }
+            IconButton(onClick = {
+                viewModel.openBasket(navController)
+            }) {
+                Icon(Icons.Filled.ShoppingCart, "ShoppingIcon")
             }
         }
     )
@@ -119,6 +126,9 @@ fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostControl
         }
         composable(NavigationRouteName.MAIN_LIKE) {
             LikeScreen(navController, viewModel)
+        }
+        composable(NavigationRouteName.BASKET) {
+            BasketScreen()
         }
         composable(
             NavigationRouteName.CATEGORY + "/{category}",
