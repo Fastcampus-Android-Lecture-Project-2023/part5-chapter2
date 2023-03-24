@@ -8,6 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import fastcampus.part5.data.db.ApplicationDatabase
+import fastcampus.part5.data.db.dao.BasketDao
 import fastcampus.part5.data.db.dao.LikeDao
 import fastcampus.part5.data.db.dao.SearchDao
 import javax.inject.Singleton
@@ -39,5 +40,11 @@ object DatabaseModule {
     @Singleton
     fun provideLikeDao(database: ApplicationDatabase) : LikeDao {
         return database.likeDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideBasketDao(database: ApplicationDatabase) : BasketDao {
+        return database.basketDao()
     }
 }

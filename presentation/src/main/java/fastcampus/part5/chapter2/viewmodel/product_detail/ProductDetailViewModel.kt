@@ -1,12 +1,14 @@
 package fastcampus.part5.chapter2.viewmodel.product_detail
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import fastcampus.part5.domain.model.Product
 import fastcampus.part5.domain.usecase.ProductDetailUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -23,7 +25,11 @@ class ProductDetailViewModel @Inject constructor(
         }
     }
 
-    fun addCart(productId: String) {
+    fun addBasket(product: Product?) {
+        product ?: return
 
+        viewModelScope.launch {
+            useCase.addBasket(product)
+        }
     }
 }

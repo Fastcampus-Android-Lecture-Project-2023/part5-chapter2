@@ -18,7 +18,7 @@ import fastcampus.part5.data.db.entity.SearchKeywordEntity
         BasketProductEntity::class,
         SearchKeywordEntity::class,
     ],
-    version = 1
+    version = 2
 )
 abstract class ApplicationDatabase : RoomDatabase() {
     companion object {

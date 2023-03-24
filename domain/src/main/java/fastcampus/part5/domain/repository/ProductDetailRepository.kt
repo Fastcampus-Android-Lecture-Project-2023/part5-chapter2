@@ -5,4 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface ProductDetailRepository {
     fun getProductDetail(productId: String) : Flow<Product>
+
+    suspend fun addBasket(product: Product)
 }
