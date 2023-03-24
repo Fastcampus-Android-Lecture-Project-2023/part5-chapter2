@@ -1,6 +1,7 @@
 package fastcampus.part5.chapter2.viewmodel.category
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavHostController
 import dagger.hilt.android.lifecycle.HiltViewModel
 import fastcampus.part5.chapter2.delegate.ProductDelegate
@@ -13,6 +14,7 @@ import fastcampus.part5.domain.usecase.CategoryUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,6 +32,12 @@ class CategoryViewModel @Inject constructor(
 
     override fun openProduct(navHostController: NavHostController, product: Product) {
         NavigationUtils.navigate(navHostController,NavigationRouteName.PRODUCT_DETAIL, product)
+    }
+
+    override fun likeProduct(product: Product) {
+        viewModelScope.launch {
+            useCase.likeProduct(product)
+        }
     }
 
     private fun convertToPresentationVM(list: List<Product>) : List<ProductVM> {

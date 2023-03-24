@@ -8,6 +8,7 @@ data class Product(
     val category: Category,
     val shop: Shop,
     val isNew: Boolean,
+    val isLike: Boolean,
     val isFreeShipping: Boolean,
     override val type: ModelType = ModelType.PRODUCT,
 ) : BaseModel()

@@ -44,6 +44,12 @@ class SearchViewModel @Inject constructor(
         }
     }
 
+    override fun likeProduct(product: Product) {
+        viewModelScope.launch {
+            useCase.likeProduct(product)
+        }
+    }
+
     private suspend fun searchInternal() {
         useCase.search(searchManager.searchKeyword, searchManager.currentFilters()).collectLatest {
             _searchResult.emit(it.map(::convertToProductVM))

@@ -33,7 +33,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(mainUseCase: MainUseCase, categoryUseCase: CategoryUseCase,
+class MainViewModel @Inject constructor(
+    private val mainUseCase: MainUseCase,
+    categoryUseCase: CategoryUseCase,
 private val accountUseCase: AccountUseCase)
     : ViewModel(), ProductDelegate, BannerDelegate, CategoryDelegate {
     private val _columnCount = MutableStateFlow(DEFAULT_COLUMN_COUNT)
@@ -61,6 +63,12 @@ private val accountUseCase: AccountUseCase)
     fun updateColumnCount(count: Int) {
         viewModelScope.launch {
             _columnCount.emit(count)
+        }
+    }
+
+    override fun likeProduct(product: Product) {
+        viewModelScope.launch {
+            mainUseCase.likeProduct(product)
         }
     }
 

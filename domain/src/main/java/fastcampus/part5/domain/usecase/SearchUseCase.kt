@@ -18,4 +18,8 @@ class SearchUseCase @Inject constructor(
     fun getSearchKeywords() : Flow<List<SearchKeyword>> {
         return searchRepository.getSearchKeywords()
     }
+
+    suspend fun likeProduct(product: Product) {
+        searchRepository.likeProduct(product)
+    }
 }

@@ -5,12 +5,13 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import fastcampus.part5.data.db.entity.LikeProductEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface LikeDao {
 
     @Query("SELECT * FROM like")
-    suspend fun getAll() : List<LikeProductEntity>
+    fun getAll() : Flow<List<LikeProductEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(item : LikeProductEntity)
