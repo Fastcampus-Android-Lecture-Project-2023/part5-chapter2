@@ -13,7 +13,6 @@ import fastcampus.part5.chapter2.model.CarouselVM
 import fastcampus.part5.chapter2.model.PresentationVM
 import fastcampus.part5.chapter2.model.ProductVM
 import fastcampus.part5.chapter2.model.RankingVM
-import fastcampus.part5.chapter2.ui.NavigationItem
 import fastcampus.part5.chapter2.ui.NavigationRouteName
 import fastcampus.part5.chapter2.utils.NavigationUtils
 import fastcampus.part5.domain.model.AccountInfo
@@ -22,7 +21,6 @@ import fastcampus.part5.domain.model.BannerList
 import fastcampus.part5.domain.model.BaseModel
 import fastcampus.part5.domain.model.Carousel
 import fastcampus.part5.domain.model.Category
-import fastcampus.part5.domain.model.ModelType
 import fastcampus.part5.domain.model.Product
 import fastcampus.part5.domain.model.Ranking
 import fastcampus.part5.domain.usecase.AccountUseCase
@@ -48,15 +46,15 @@ private val accountUseCase: AccountUseCase)
         NavigationUtils.navigate(navHostController, NavigationRouteName.SEARCH)
     }
 
-    fun signInGoogle(accountInfo: AccountInfo) {
+    fun signIn(accountInfo: AccountInfo) {
         viewModelScope.launch {
-            accountUseCase.signInGoogle(accountInfo)
+            accountUseCase.signIn(accountInfo)
         }
     }
 
-    fun signOutGoogle() {
+    fun signOut() {
         viewModelScope.launch {
-            accountUseCase.signOutGoogle()
+            accountUseCase.signOut()
         }
     }
 

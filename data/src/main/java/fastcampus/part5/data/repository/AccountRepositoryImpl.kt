@@ -16,12 +16,12 @@ class AccountRepositoryImpl @Inject constructor(
         return accountInfoFlow
     }
 
-    override suspend fun signInGoogle(accountInfo: AccountInfo) {
+    override suspend fun signIn(accountInfo: AccountInfo) {
         preferenceDatasource.putAccountInfo(accountInfo)
         accountInfoFlow.emit(accountInfo)
     }
 
-    override suspend fun signOutGoogle() {
+    override suspend fun signOut() {
         preferenceDatasource.removeAccountInfo()
         accountInfoFlow.emit(null)
     }
