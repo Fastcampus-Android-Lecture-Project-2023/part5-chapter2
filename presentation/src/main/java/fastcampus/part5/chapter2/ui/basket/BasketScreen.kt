@@ -17,13 +17,16 @@ import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -34,17 +37,33 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import fastcampus.part5.chapter2.ui.component.Price
+import fastcampus.part5.chapter2.ui.popupSnackBar
 import fastcampus.part5.chapter2.ui.theme.Purple200
 import fastcampus.part5.chapter2.utils.NumberUtils
+import fastcampus.part5.chapter2.viewmodel.basket.BasketAction
+import fastcampus.part5.chapter2.viewmodel.basket.BasketEvent
 import fastcampus.part5.chapter2.viewmodel.basket.BasketViewModel
 import fastcampus.part5.di.R
 import fastcampus.part5.domain.model.BasketProduct
 import fastcampus.part5.domain.model.Product
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
-fun BasketScreen(viewModel: BasketViewModel = hiltViewModel()) {
+fun BasketScreen(
+    scaffoldState: ScaffoldState,
+    viewModel: BasketViewModel = hiltViewModel()
+) {
     val basketProducts by viewModel.basketProducts.collectAsState(initial = listOf())
-
+    val scope = rememberCoroutineScope()
+    LaunchedEffect(Unit) {
+        viewModel.eventFlow.collectLatest { event ->
+            when (event) {
+                is BasketEvent.ShowSnackBar -> {
+                    popupSnackBar(scope, scaffoldState, "결제 되었습니다.")
+                }
+            }
+        }
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -58,25 +77,28 @@ fun BasketScreen(viewModel: BasketViewModel = hiltViewModel()) {
         ) {
             items(basketProducts.size) { index ->
                 BasketProductCard(basketProduct = basketProducts[index]) {
-                    viewModel.removeBasketProduct(it)
+                    viewModel.dispatch(BasketAction.RemoveProduct(it))
                 }
             }
         }
         Button(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { },
+            onClick = {
+                viewModel.dispatch(BasketAction.CheckoutBasket(basketProducts))
+            },
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = Purple200
             ),
             shape = RoundedCornerShape(12.dp)
         ) {
-            Icon(Icons.Filled.Check,"CheckIcon")
+            Icon(Icons.Filled.Check, "CheckIcon")
 
             Text(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(5.dp),
                 fontSize = 16.sp,
-                text ="${getTotalPrice(basketProducts)} 결제하기."
+                text = "${getTotalPrice(basketProducts)} 결제하기."
             )
         }
     }
@@ -133,7 +155,7 @@ fun BasketProductCard(basketProduct: BasketProduct, removeProduct: (Product) -> 
     }
 }
 
-private fun getTotalPrice(list: List<BasketProduct>) : String {
+private fun getTotalPrice(list: List<BasketProduct>): String {
     val totalPrice = list.sumOf { it.product.price.finalPrice * it.count }
     return NumberUtils.numberFormatPrice(totalPrice)
 }

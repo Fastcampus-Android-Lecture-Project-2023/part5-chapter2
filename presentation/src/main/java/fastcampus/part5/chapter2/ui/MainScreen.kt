@@ -1,10 +1,15 @@
 package fastcampus.part5.chapter2.ui
 
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
+import androidx.compose.material.ScaffoldState
+import androidx.compose.material.Snackbar
+import androidx.compose.material.SnackbarHost
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
@@ -14,6 +19,8 @@ import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -32,6 +39,8 @@ import fastcampus.part5.chapter2.ui.purchase_history.PurchaseHistoryScreen
 import fastcampus.part5.chapter2.ui.search.SearchScreen
 import fastcampus.part5.chapter2.utils.NavigationUtils
 import fastcampus.part5.chapter2.viewmodel.MainViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 @Composable
 fun MainScreen(googleSignInClient: GoogleSignInClient) {
@@ -50,9 +59,17 @@ fun MainScreen(googleSignInClient: GoogleSignInClient) {
             if (MainNav.isMainRoute(currentRoute)) {
                 MainBottomNavigationBar(navController, currentRoute)
             }
+        },
+        snackbarHost = {
+            SnackbarHost(hostState = scaffoldState.snackbarHostState) { data ->
+                Snackbar(
+                    snackbarData = data, modifier = Modifier.padding(50.dp),
+                    shape = RoundedCornerShape(10.dp)
+                )
+            }
         }
     ) {
-        MainNavigationScreen(viewModel = viewModel, navController = navController, googleSignInClient)
+        MainNavigationScreen(viewModel = viewModel, navController = navController, googleSignInClient, scaffoldState)
     }
 }
 
@@ -111,7 +128,12 @@ fun MainBottomNavigationBar(navController: NavHostController, currentRoute: Stri
 }
 
 @Composable
-fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostController, googleSignInClient: GoogleSignInClient) {
+fun MainNavigationScreen(
+    viewModel: MainViewModel,
+    navController: NavHostController,
+    googleSignInClient: GoogleSignInClient,
+    scaffoldState: ScaffoldState
+) {
     NavHost(navController = navController, startDestination = MainNav.Home.route) {
         composable(
             route = MainNav.Home.route,
@@ -141,7 +163,7 @@ fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostControl
             route = BasketNav.route,
             deepLinks = BasketNav.deepLinks
         ) {
-            BasketScreen()
+            BasketScreen(scaffoldState)
         }
         composable(
             route = PurchaseHistoryNav.route,
@@ -175,5 +197,17 @@ fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostControl
                 ProductDetailScreen(productString)
             }
         }
+    }
+}
+
+fun popupSnackBar(
+    scope: CoroutineScope,
+    scaffoldState: ScaffoldState,
+    message: String,
+    onDismissCallback: () -> Unit = {}
+) {
+    scope.launch {
+        scaffoldState.snackbarHostState.showSnackbar(message = message)
+        onDismissCallback.invoke()
     }
 }

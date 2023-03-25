@@ -1,5 +1,6 @@
 package fastcampus.part5.chapter2.ui.purchase_history
 
+import android.inputmethodservice.Keyboard
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -8,7 +9,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -37,18 +40,14 @@ fun PurchaseHistoryScreen(
     LazyColumn(modifier = Modifier
         .fillMaxSize()
         .padding(10.dp)) {
-        items(purchaseHistory.size) {index ->
-            PurchaseHistoryCard(purchaseHistory = purchaseHistory[index])
+        purchaseHistory.forEach {
+            PurchaseHistoryCard(it)
         }
     }
 }
 
-@Composable
-fun PurchaseHistoryCard(purchaseHistory: PurchaseHistory) {
-    LazyColumn(
-        modifier = Modifier.fillMaxWidth(),
-        contentPadding = PaddingValues(10.dp)
-    ) {
+fun LazyListScope.PurchaseHistoryCard(purchaseHistory: PurchaseHistory) {
+
         item {
             Text(
                 fontSize = 16.sp,
@@ -60,7 +59,6 @@ fun PurchaseHistoryCard(purchaseHistory: PurchaseHistory) {
 
             Row(
                 modifier = Modifier
-                    .padding(10.dp)
                     .fillMaxWidth()
             ) {
                 Image(
@@ -70,12 +68,10 @@ fun PurchaseHistoryCard(purchaseHistory: PurchaseHistory) {
                     modifier = Modifier.size(60.dp)
                 )
                 Column(modifier = Modifier
-                    .padding(10.dp)
-                    .weight(1f)) {
+                    .padding(10.dp,0.dp,0.dp,0.dp)) {
                     Text(
                         fontSize = 14.sp,
                         text = "${currentItem.product.shop.shopName} - ${currentItem.product.productName}",
-                        modifier = Modifier.padding(10.dp)
                     )
                     Price(product = currentItem.product)
                 }
@@ -84,7 +80,7 @@ fun PurchaseHistoryCard(purchaseHistory: PurchaseHistory) {
                     fontSize = 18.sp,
                     fontWeight = FontWeight.SemiBold,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(30.dp)
+                    modifier = Modifier.padding(30.dp,0.dp,0.dp,0.dp)
                 )
             }
         }
@@ -92,13 +88,12 @@ fun PurchaseHistoryCard(purchaseHistory: PurchaseHistory) {
             Text(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(5.dp),
+                    .padding(0.dp,0.dp,0.dp,20.dp),
                 fontSize = 16.sp,
                 text = "${getTotalPrice(purchaseHistory.basketList)} 결제완료"
             )
         }
 
-    }
 }
 
 private fun getTotalPrice(list: List<BasketProduct>): String {

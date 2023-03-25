@@ -8,4 +8,6 @@ interface BasketRepository {
     fun getBasketProducts() : Flow<List<BasketProduct>>
 
     suspend fun removeBasketProduct(product: Product)
+
+    suspend fun checkoutBasket(products: List<BasketProduct>)
 }
