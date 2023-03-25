@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import dagger.hilt.android.lifecycle.HiltViewModel
 import fastcampus.part5.chapter2.delegate.ProductDelegate
 import fastcampus.part5.chapter2.model.ProductVM
-import fastcampus.part5.chapter2.ui.NavigationRouteName
+import fastcampus.part5.chapter2.ui.ProductDetailNav
 import fastcampus.part5.chapter2.utils.NavigationUtils
 import fastcampus.part5.domain.model.Product
 import fastcampus.part5.domain.model.SearchFilter
@@ -22,11 +22,11 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val useCase: SearchUseCase
-) : ViewModel(), ProductDelegate{
+) : ViewModel(), ProductDelegate {
 
     private val searchManager = SearchManager()
     private val _searchResult = MutableStateFlow<List<ProductVM>>(listOf())
-    val searchResult : StateFlow<List<ProductVM>> = _searchResult
+    val searchResult: StateFlow<List<ProductVM>> = _searchResult
     val searchKeywords = useCase.getSearchKeywords()
     val searchFilters = searchManager.filters
 
@@ -67,11 +67,11 @@ class SearchViewModel @Inject constructor(
         }
     }
 
-    private fun convertToProductVM(product: Product) : ProductVM {
+    private fun convertToProductVM(product: Product): ProductVM {
         return ProductVM(product, this)
     }
 
     override fun openProduct(navHostController: NavHostController, product: Product) {
-        NavigationUtils.navigate(navHostController, NavigationRouteName.PRODUCT_DETAIL, product)
+        NavigationUtils.navigate(navHostController, ProductDetailNav.navigateWithArg(product.productId))
     }
 }

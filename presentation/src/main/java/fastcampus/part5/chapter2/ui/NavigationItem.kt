@@ -12,43 +12,48 @@ import androidx.navigation.NavDeepLink
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
-import fastcampus.part5.chapter2.ui.NavigationRouteName.BASKET
-import fastcampus.part5.chapter2.ui.NavigationRouteName.CATEGORY
 import fastcampus.part5.chapter2.ui.NavigationRouteName.DEEP_LINK_SCHEME
 import fastcampus.part5.chapter2.ui.NavigationRouteName.MAIN_CATEGORY
 import fastcampus.part5.chapter2.ui.NavigationRouteName.MAIN_HOME
 import fastcampus.part5.chapter2.ui.NavigationRouteName.MAIN_LIKE
 import fastcampus.part5.chapter2.ui.NavigationRouteName.MAIN_MY_PAGE
-import fastcampus.part5.chapter2.ui.NavigationRouteName.PRODUCT_DETAIL
-import fastcampus.part5.chapter2.ui.NavigationRouteName.SEARCH
 import fastcampus.part5.chapter2.utils.GsonUtils
 import fastcampus.part5.domain.model.Category
-import fastcampus.part5.domain.model.Product
 
-sealed class NavigationItem(open val route: String) {
-    sealed class MainNav(override val route: String, val icon: ImageVector, val name: String) : NavigationItem(route) {
-        object Home : MainNav(MAIN_HOME, Icons.Filled.Home, MAIN_HOME)
-        object Category : MainNav(MAIN_CATEGORY, Icons.Filled.Star, MAIN_CATEGORY)
-        object MyPage : MainNav(MAIN_MY_PAGE, Icons.Filled.AccountBox, MAIN_MY_PAGE)
-        object LIKE : MainNav(MAIN_LIKE, Icons.Filled.Favorite, MAIN_LIKE)
+sealed class MainNav(override val route: String, val icon: ImageVector,override val title: String) : Destination {
+    object Home : MainNav(MAIN_HOME, Icons.Filled.Home, NavigationTitle.MAIN_HOME)
+    object Category : MainNav(MAIN_CATEGORY, Icons.Filled.Star, NavigationTitle.MAIN_CATEGORY)
+    object MyPage : MainNav(MAIN_MY_PAGE, Icons.Filled.AccountBox, NavigationTitle.MAIN_MY_PAGE)
+    object Like : MainNav(MAIN_LIKE, Icons.Filled.Favorite, NavigationTitle.MAIN_LIKE)
 
-        companion object {
-            fun isMainRoute(route: String?) : Boolean {
-                return when (route) {
-                    MAIN_HOME, MAIN_LIKE, MAIN_CATEGORY, MAIN_MY_PAGE -> true
-                    else -> false
-                }
+    override val deepLinks: List<NavDeepLink> = listOf(
+        navDeepLink { uriPattern = "$DEEP_LINK_SCHEME$route" }
+    )
+
+    companion object {
+        fun isMainRoute(route: String?) : Boolean {
+            return when (route) {
+                MAIN_HOME, MAIN_LIKE, MAIN_CATEGORY, MAIN_MY_PAGE -> true
+                else -> false
             }
         }
     }
+}
 
-    data class CategoryNav(val category: Category) : NavigationItem(CATEGORY)
+object SearchNav : Destination {
+    override val route: String = NavigationRouteName.SEARCH
+    override val title: String = NavigationTitle.SEARCH
+    override val deepLinks: List<NavDeepLink> = listOf(
+        navDeepLink { uriPattern = "$DEEP_LINK_SCHEME$route" }
+    )
+}
 
-    data class ProductDetailNav(val product: Product) : NavigationItem(PRODUCT_DETAIL)
-
-    object SearchNav : NavigationItem(SEARCH)
-
-    object BasketNav : NavigationItem(BASKET)
+object BasketNav : Destination {
+    override val route: String = NavigationRouteName.BASKET
+    override val title: String = NavigationTitle.BASKET
+    override val deepLinks: List<NavDeepLink> = listOf(
+        navDeepLink { uriPattern = "$DEEP_LINK_SCHEME$route" }
+    )
 }
 
 object CategoryNav : DestinationArg<Category> {
@@ -65,14 +70,37 @@ object CategoryNav : DestinationArg<Category> {
 
     override fun navigateWithArg(item: Category): String  {
         val arg = GsonUtils.toJson(item)
-        return "$route/{$arg}"
+        return "$route/$arg"
     }
 
     override fun findArgument(navBackStackEntry: NavBackStackEntry): Category? {
         val categoryString = navBackStackEntry.arguments?.getString(argName)
         return GsonUtils.fromJson<Category>(categoryString)
     }
+}
 
+
+object ProductDetailNav : DestinationArg<String> {
+    override val route: String = NavigationRouteName.PRODUCT_DETAIL
+    override val title: String = NavigationTitle.PRODUCT_DETAIL
+    override val argName: String = "productId"
+    override val deepLinks: List<NavDeepLink> = listOf(
+        navDeepLink { uriPattern ="$DEEP_LINK_SCHEME$route/{$argName}" }
+    )
+
+    override val arguments: List<NamedNavArgument> = listOf(
+        navArgument(argName) { type= NavType.StringType}
+    )
+
+    override fun navigateWithArg(item: String): String  {
+        val arg = GsonUtils.toJson(item)
+        return "$route/$arg"
+    }
+
+    override fun findArgument(navBackStackEntry: NavBackStackEntry): String? {
+        val categoryString = navBackStackEntry.arguments?.getString(argName)
+        return GsonUtils.fromJson<String>(categoryString)
+    }
 }
 
 

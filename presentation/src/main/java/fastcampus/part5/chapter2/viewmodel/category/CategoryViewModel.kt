@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import dagger.hilt.android.lifecycle.HiltViewModel
 import fastcampus.part5.chapter2.delegate.ProductDelegate
 import fastcampus.part5.chapter2.model.ProductVM
-import fastcampus.part5.chapter2.ui.NavigationRouteName
+import fastcampus.part5.chapter2.ui.ProductDetailNav
 import fastcampus.part5.chapter2.utils.NavigationUtils
 import fastcampus.part5.domain.model.Category
 import fastcampus.part5.domain.model.Product
@@ -31,7 +31,7 @@ class CategoryViewModel @Inject constructor(
     }
 
     override fun openProduct(navHostController: NavHostController, product: Product) {
-        NavigationUtils.navigate(navHostController,NavigationRouteName.PRODUCT_DETAIL, product)
+        NavigationUtils.navigate(navHostController,ProductDetailNav.navigateWithArg(product.productId))
     }
 
     override fun likeProduct(product: Product) {

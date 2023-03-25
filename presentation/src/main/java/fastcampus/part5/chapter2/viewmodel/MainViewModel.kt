@@ -13,8 +13,10 @@ import fastcampus.part5.chapter2.model.CarouselVM
 import fastcampus.part5.chapter2.model.PresentationVM
 import fastcampus.part5.chapter2.model.ProductVM
 import fastcampus.part5.chapter2.model.RankingVM
+import fastcampus.part5.chapter2.ui.BasketNav
 import fastcampus.part5.chapter2.ui.CategoryNav
-import fastcampus.part5.chapter2.ui.NavigationRouteName
+import fastcampus.part5.chapter2.ui.ProductDetailNav
+import fastcampus.part5.chapter2.ui.SearchNav
 import fastcampus.part5.chapter2.utils.NavigationUtils
 import fastcampus.part5.domain.model.AccountInfo
 import fastcampus.part5.domain.model.Banner
@@ -49,11 +51,11 @@ class MainViewModel @Inject constructor(
     val accountInfo = accountUseCase.getAccountInfo()
 
     fun openSearchForm(navHostController: NavHostController) {
-        NavigationUtils.navigate(navHostController, NavigationRouteName.SEARCH)
+        NavigationUtils.navigate(navHostController, SearchNav.route)
     }
 
     fun openBasket(navHostController: NavHostController) {
-        NavigationUtils.navigate(navHostController, NavigationRouteName.BASKET)
+        NavigationUtils.navigate(navHostController, BasketNav.route)
     }
 
     fun signIn(accountInfo: AccountInfo) {
@@ -81,7 +83,7 @@ class MainViewModel @Inject constructor(
     }
 
     override fun openProduct(navHostController: NavHostController, product: Product) {
-        NavigationUtils.navigate(navHostController, NavigationRouteName.PRODUCT_DETAIL, product)
+        NavigationUtils.navigate(navHostController, ProductDetailNav.navigateWithArg(product.productId))
     }
 
     override fun openBanner(bannerId: String) {
@@ -89,9 +91,7 @@ class MainViewModel @Inject constructor(
     }
 
     override fun openCategory(navHostController: NavHostController, category: Category) {
-        NavigationUtils.navigate(navHostController, NavigationRouteName.CATEGORY, category)
-
-        NavigationUtils.navigatev2(navHostController, CategoryNav.navigateWithArg(category))
+        NavigationUtils.navigate(navHostController, CategoryNav.navigateWithArg(category))
     }
 
     private fun convertToPresentationVM(list: List<BaseModel>): List<PresentationVM<out BaseModel>> {
