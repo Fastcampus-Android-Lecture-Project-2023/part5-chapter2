@@ -5,9 +5,11 @@ import androidx.room.RoomDatabase
 import fastcampus.part5.data.db.dao.BasketDao
 import fastcampus.part5.data.db.dao.LikeDao
 import fastcampus.part5.data.db.dao.PurchaseDao
+import fastcampus.part5.data.db.dao.PurchaseHistoryDao
 import fastcampus.part5.data.db.dao.SearchDao
 import fastcampus.part5.data.db.entity.BasketProductEntity
 import fastcampus.part5.data.db.entity.LikeProductEntity
+import fastcampus.part5.data.db.entity.PurchaseHistoryEntity
 import fastcampus.part5.data.db.entity.PurchaseProductEntity
 import fastcampus.part5.data.db.entity.SearchKeywordEntity
 
@@ -17,8 +19,9 @@ import fastcampus.part5.data.db.entity.SearchKeywordEntity
         LikeProductEntity::class,
         BasketProductEntity::class,
         SearchKeywordEntity::class,
+        PurchaseHistoryEntity::class,
     ],
-    version = 2
+    version = 3
 )
 abstract class ApplicationDatabase : RoomDatabase() {
     companion object {
@@ -32,4 +35,6 @@ abstract class ApplicationDatabase : RoomDatabase() {
     abstract fun basketDao() : BasketDao
 
     abstract fun searchDao() : SearchDao
+
+    abstract fun purchaseHistoryDao() : PurchaseHistoryDao
 }
