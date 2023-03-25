@@ -7,6 +7,7 @@ import fastcampus.part5.chapter2.ui.Destination
 import fastcampus.part5.chapter2.ui.MainNav
 import fastcampus.part5.chapter2.ui.NavigationRouteName
 import fastcampus.part5.chapter2.ui.ProductDetailNav
+import fastcampus.part5.chapter2.ui.PurchaseHistoryNav
 import fastcampus.part5.chapter2.ui.SearchNav
 
 object NavigationUtils {
@@ -35,6 +36,7 @@ object NavigationUtils {
             NavigationRouteName.MAIN_CATEGORY -> MainNav.Category
             NavigationRouteName.SEARCH -> SearchNav
             NavigationRouteName.BASKET -> BasketNav
+            NavigationRouteName.PURCHASE_HISTORY -> PurchaseHistoryNav
 
             ProductDetailNav.routeWithArgName() -> ProductDetailNav
             CategoryNav.routeWithArgName() -> CategoryNav

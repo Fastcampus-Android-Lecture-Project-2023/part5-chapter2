@@ -28,6 +28,7 @@ import fastcampus.part5.chapter2.ui.main.MainCategoryScreen
 import fastcampus.part5.chapter2.ui.main.MainHomeScreen
 import fastcampus.part5.chapter2.ui.main.MyPageScreen
 import fastcampus.part5.chapter2.ui.product_detail.ProductDetailScreen
+import fastcampus.part5.chapter2.ui.purchase_history.PurchaseHistoryScreen
 import fastcampus.part5.chapter2.ui.search.SearchScreen
 import fastcampus.part5.chapter2.utils.NavigationUtils
 import fastcampus.part5.chapter2.viewmodel.MainViewModel
@@ -134,13 +135,19 @@ fun MainNavigationScreen(viewModel: MainViewModel, navController: NavHostControl
             route = MainNav.MyPage.route,
             deepLinks = MainNav.MyPage.deepLinks
         ) {
-            MyPageScreen(viewModel = viewModel, googleSignInClient = googleSignInClient)
+            MyPageScreen(viewModel = viewModel, googleSignInClient = googleSignInClient, navHostController = navController)
         }
         composable(
             route = BasketNav.route,
             deepLinks = BasketNav.deepLinks
         ) {
             BasketScreen()
+        }
+        composable(
+            route = PurchaseHistoryNav.route,
+            deepLinks = PurchaseHistoryNav.deepLinks
+        ) {
+            PurchaseHistoryScreen()
         }
         composable(
             route = SearchNav.route,

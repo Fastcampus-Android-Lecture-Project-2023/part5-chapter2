@@ -16,6 +16,7 @@ import fastcampus.part5.chapter2.model.RankingVM
 import fastcampus.part5.chapter2.ui.BasketNav
 import fastcampus.part5.chapter2.ui.CategoryNav
 import fastcampus.part5.chapter2.ui.ProductDetailNav
+import fastcampus.part5.chapter2.ui.PurchaseHistoryNav
 import fastcampus.part5.chapter2.ui.SearchNav
 import fastcampus.part5.chapter2.utils.NavigationUtils
 import fastcampus.part5.domain.model.AccountInfo
@@ -56,6 +57,10 @@ class MainViewModel @Inject constructor(
 
     fun openBasket(navHostController: NavHostController) {
         NavigationUtils.navigate(navHostController, BasketNav.route)
+    }
+
+    fun openPurchaseHistory(navHostController: NavHostController) {
+        NavigationUtils.navigate(navHostController, PurchaseHistoryNav.route)
     }
 
     fun signIn(accountInfo: AccountInfo) {

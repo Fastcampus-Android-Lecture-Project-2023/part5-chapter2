@@ -17,10 +17,10 @@ interface PurchaseHistoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(item : PurchaseHistoryEntity)
 
-    @Query("SELECT * FROM history WHERE productId=:id")
+    @Query("SELECT * FROM history WHERE id=:id")
     suspend fun get(id: String): PurchaseHistoryEntity?
 
-    @Query("DELETE FROM history WHERE productId=:id")
+    @Query("DELETE FROM history WHERE id=:id")
     suspend fun delete(id: String)
 
     @Query("DELETE FROM history")
