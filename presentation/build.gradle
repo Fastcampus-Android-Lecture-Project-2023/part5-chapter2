@@ -62,6 +62,7 @@ dependencies {
     implementation "com.google.code.gson:gson:2.10.1"
 
     implementation "com.kakao.sdk:v2-user:2.13.0"
+    implementation "io.coil-kt:coil-compose:2.1.0"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'

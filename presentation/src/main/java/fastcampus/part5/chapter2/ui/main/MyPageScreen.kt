@@ -6,11 +6,16 @@ import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -18,9 +23,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -62,33 +71,52 @@ fun MyPageScreen(viewModel: MainViewModel, googleSignInClient: GoogleSignInClien
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(30.dp)
+            .padding(30.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         if (accountInfo != null) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "로그인 유저 : ${accountInfo?.name}",
-                    textAlign = TextAlign.Start,
-                    modifier = Modifier.weight(1f)
-                )
 
-                Button(onClick = {
-                    viewModel.signOut()
-                    when (accountInfo?.type){
-                        AccountInfo.Type.KAKAO -> {
-                            UserApiClient.instance.logout { }
-                        }
-                        AccountInfo.Type.GOOGLE -> {
-                            firebaseAuth.signOut()
-                        }
+            Image(
+                painter = rememberAsyncImagePainter(
+                    ImageRequest.Builder(LocalContext.current)
+                        .data(data = accountInfo?.profileImageUrl)
+                        .apply(block = fun ImageRequest.Builder.(){
+                            crossfade(true)
+                        }).build()
+                ),
+                contentDescription = "profileImage",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(100.dp)
+                    .padding(5.dp)
+                    .clip(CircleShape),
+                alignment = Alignment.Center
+            )
+            
+            Text(
+                text = accountInfo?.name.orEmpty(),
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp)
+            )
+            Spacer(modifier = Modifier.weight(1f))
+            Button(onClick = {
+                viewModel.signOut()
+                when (accountInfo?.type) {
+                    AccountInfo.Type.KAKAO -> {
+                        UserApiClient.instance.logout { }
                     }
-                }) {
-                    Text(text = "로그아웃")
+                    AccountInfo.Type.GOOGLE -> {
+                        firebaseAuth.signOut()
+                    }
                 }
+            },modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp)) {
+                Text(text = "로그아웃")
             }
+            Spacer(modifier = Modifier.height(70.dp))
 
         } else {
             Button(onClick = {
@@ -114,7 +142,9 @@ private fun loginWithKakaoNickName(token: OAuthToken, viewModel: MainViewModel) 
                 Log.e("Kakao", "사용저 정보 실패", error)
             }
             user != null -> {
-                viewModel.signIn(AccountInfo(token.accessToken, user.properties?.get("nickname").orEmpty(), AccountInfo.Type.KAKAO))
+                val imageUrl = user.kakaoAccount?.profile?.thumbnailImageUrl
+                val nickName = user.kakaoAccount?.profile?.nickname
+                viewModel.signIn(AccountInfo(token.accessToken, nickName.orEmpty(), AccountInfo.Type.KAKAO, imageUrl.orEmpty()))
             }
         }
     }
@@ -148,7 +178,14 @@ private fun handleSignInResult(context: Context, accountTask: Task<GoogleSignInA
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(context as Activity) { task ->
                 if (task.isSuccessful) {
-                    viewModel.signIn(AccountInfo(account.idToken.orEmpty(), account.displayName.orEmpty(), AccountInfo.Type.GOOGLE))
+                    viewModel.signIn(
+                        AccountInfo(
+                            account.idToken.orEmpty(),
+                            account.displayName.orEmpty(),
+                            AccountInfo.Type.GOOGLE,
+                            account.photoUrl.toString()
+                        )
+                    )
                 } else {
                     viewModel.signOut()
                     firebaseAuth.signOut()
