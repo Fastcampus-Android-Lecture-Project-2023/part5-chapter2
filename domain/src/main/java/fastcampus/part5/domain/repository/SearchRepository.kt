@@ -6,7 +6,7 @@ import fastcampus.part5.domain.model.SearchKeyword
 import kotlinx.coroutines.flow.Flow
 
 interface SearchRepository {
-    suspend fun search(searchKeyword: SearchKeyword, filters: List<SearchFilter>) : Flow<List<Product>>
+    suspend fun search(searchKeyword: SearchKeyword) : Flow<List<Product>>
 
     fun getSearchKeywords() : Flow<List<SearchKeyword>>
 
